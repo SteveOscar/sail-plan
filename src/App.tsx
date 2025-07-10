@@ -5,10 +5,10 @@ import React, { useState } from 'react';
 import OpenAI from 'openai';
 
 // Define environment variables (set these in your .env file)
-// Example: REACT_APP_OPENWEATHER_API_KEY=your_openweather_key
-// REACT_APP_XAI_API_KEY=your_xai_api_key
-const OPENWEATHER_API_KEY = process.env.REACT_APP_OPENWEATHER_API_KEY || '';
-const XAI_API_KEY = process.env.REACT_APP_XAI_API_KEY || '';
+// Example: VITE_OPENWEATHER_API_KEY=your_openweather_key
+// VITE_XAI_API_KEY=your_xai_api_key
+const OPENWEATHER_API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY || '';
+const XAI_API_KEY = import.meta.env.VITE_XAI_API_KEY || '';
 
 // Interface for form inputs
 interface SailPlanInputs {
@@ -63,7 +63,7 @@ const App: React.FC = () => {
     setAdvice('');
 
     if (!OPENWEATHER_API_KEY || !XAI_API_KEY) {
-      setError('API keys are missing. Please set REACT_APP_OPENWEATHER_API_KEY and REACT_APP_XAI_API_KEY in your .env file.');
+      setError('API keys are missing. Please set VITE_OPENWEATHER_API_KEY and VITE_XAI_API_KEY in your .env file.');
       setLoading(false);
       return;
     }
