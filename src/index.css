@@ -1,3 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --color-ocean: #005689;
+  --color-wave: #0077be;
+  --color-foam: #e0f7fa;
+}
