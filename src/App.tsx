@@ -1,7 +1,7 @@
 // App.tsx
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
-
+import LoadingPopover from './components/LoadingPopover';
 // Import OpenAI SDK for compatibility with xAI API
 import OpenAI from 'openai';
 
@@ -243,6 +243,7 @@ Provide advice on the sail plan for this trip, including sail choices, safety co
           </div>
         )}
       </div>
+      {loading && <LoadingPopover />}
     </div>
   );
 };

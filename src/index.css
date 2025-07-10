@@ -36,3 +36,16 @@ a {
 ::-webkit-scrollbar-thumb {
   background: #00ff41;
 }
+
+@keyframes bob {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+  
+  .animate-bob {
+    animation: bob 2s infinite ease-in-out;
+  }
