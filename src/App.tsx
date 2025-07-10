@@ -1,5 +1,6 @@
 // App.tsx
 import React, { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
 
 // Import OpenAI SDK for compatibility with xAI API
 import OpenAI from 'openai';
@@ -233,7 +234,9 @@ Provide advice on the sail plan for this trip, including sail choices, safety co
         {advice && (
           <div className="mt-10  pl-24 pr-24 pt-10 pb-10 bg-white/20 backdrop-blur-lg border border-white/30 rounded-3xl">
             <h2 className="text-ocean text-3xl font-bold mb-6">Advice from Captain AI:</h2>
-            <pre className="whitespace-pre-wrap text-ocean/90 leading-relaxed text-lg">{advice}</pre>
+            <div className="prose prose-lg text-ocean/90 max-w-none">
+              <ReactMarkdown>{advice}</ReactMarkdown>
+            </div>
           </div>
         )}
       </div>
