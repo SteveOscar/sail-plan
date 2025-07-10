@@ -6,6 +6,7 @@ const messages = [
   'analyzing your vessel and available sails',
   'conferring with artificial intelligence',
   'finishing up',
+  'this can take a bit of time'
 ];
 
 const LoadingPopover: React.FC = () => {
@@ -14,8 +15,8 @@ const LoadingPopover: React.FC = () => {
 
   useEffect(() => {
     const messageInterval = setInterval(() => {
-      setMessageIndex((prev) => (prev + 1) % messages.length);
-    }, 3000); // Change message every 3 seconds
+      setMessageIndex((prev) => Math.min(prev + 1, messages.length - 1));
+    }, 3000); // Change message every 3 seconds, stop at the last one
 
     const waveInterval = setInterval(() => {
       setWavePosition((prev) => (prev + 1) % waves.length);
@@ -27,22 +28,24 @@ const LoadingPopover: React.FC = () => {
     };
   }, []);
 
-  const boat = `   /|   
-  / |   
- /  |   
-/___|   `;
+  const boat = `     /|     
+    / |     
+   /  |     
+  /___|     `; // Added spaces to center better over wider waves
 
-  const waves = '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'; // Long string for scrolling effect
+  const wavesPattern = '~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ '; // Pattern with spaces for visible scrolling
+  const waves = wavesPattern.repeat(2); // Make it longer for smooth loop
+
   const visibleWaves = waves.slice(wavePosition) + waves.slice(0, wavePosition);
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50">
-      <div className="bg-black border border-green-500 p-8 rounded-lg text-center max-w-lg w-full" style={{ color: 'var(--color-terminal-green)', fontFamily: 'inherit' }}>
+      <div className="bg-black border border-green-500 p-8 rounded-lg text-center h-75 max-w-lg w-full" style={{ color: 'var(--color-terminal-green)', fontFamily: 'inherit' }}>
         <div className="mb-6 animate-bob">
           <pre className="text-2xl font-mono" style={{ whiteSpace: 'pre', lineHeight: '1.2' }}>
             {boat}
             {'\n'}
-            {visibleWaves.slice(0, 8)} {/* Adjust slice to match boat width for a compact wave under the boat */}
+            {visibleWaves.slice(0, 20)} {/* Wider view to see the scrolling effect */}
           </pre>
         </div>
         <p className="text-lg font-mono">{messages[messageIndex]}...</p>
