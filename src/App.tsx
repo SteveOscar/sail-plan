@@ -150,78 +150,81 @@ Provide advice on the sail plan for this trip, including sail choices, safety co
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-foam to-wave flex items-center justify-center p-4">
-
-      <div className="w-full bg-white/20 backdrop-blur-lg border border-white/30 rounded-3xl shadow-3xl p-10 ring-1 ring-wave/50">
+    <div className="min-h-screen flex items-center justify-center p-4" style={{ background: 'var(--color-terminal-bg)' }}>
+      <div className="w-full max-w-2xl bg-black border border-green-500 p-10" style={{ color: 'var(--color-terminal-green)', fontFamily: 'inherit' }}>
       {!advice && (
         <>
-        <h1 className="text-center text-ocean text-4xl font-bold mb-10">Create Sail Plan</h1>
-        <form onSubmit={handleSubmit} className="space-y-6 max-w-xl">
+        <h1 className="text-center text-4xl font-bold mb-10" style={{ color: 'var(--color-terminal-green)', fontFamily: 'inherit' }}>Create Sail Plan</h1>
+        <form onSubmit={handleSubmit} className="space-y-6" style={{ fontFamily: 'inherit' }}>
           <div>
-            <label className="block text-wave font-semibold mb-3">City</label>
+            <label className="block font-semibold mb-3" style={{ color: 'var(--color-terminal-green)' }}>City</label>
             <input
               type="text"
               name="city"
               value={inputs.city}
               onChange={handleChange}
               required
-              className="w-full p-4 rounded-xl bg-white/10 border border-wave/50 text-ocean placeholder-ocean/70 focus:outline-none focus:border-wave focus:ring-2 focus:ring-wave/50"
+              className="w-full p-3 bg-black border border-green-500 text-green-400 placeholder-green-700 focus:outline-none focus:border-green-300 focus:ring-2 focus:ring-green-700 font-mono"
+              style={{ fontFamily: 'inherit' }}
             />
           </div>
           <div>
-            <label className="block text-wave font-semibold mb-3">State/Province</label>
+            <label className="block font-semibold mb-3" style={{ color: 'var(--color-terminal-green)' }}>State/Province</label>
             <input
               type="text"
               name="state"
               value={inputs.state}
               onChange={handleChange}
               required
-              className="w-full p-4 rounded-xl bg-white/10 border border-wave/50 text-ocean placeholder-ocean/70 focus:outline-none focus:border-wave focus:ring-2 focus:ring-wave/50"
+              className="w-full p-3 bg-black border border-green-500 text-green-400 placeholder-green-700 focus:outline-none focus:border-green-300 focus:ring-2 focus:ring-green-700 font-mono"
+              style={{ fontFamily: 'inherit' }}
             />
           </div>
           <div>
-            <label className="block text-wave font-semibold mb-3">Country</label>
+            <label className="block font-semibold mb-3" style={{ color: 'var(--color-terminal-green)' }}>Country</label>
             <input
               type="text"
               name="country"
               value={inputs.country}
               onChange={handleChange}
               required
-              className="w-full p-4 rounded-xl bg-white/10 border border-wave/50 text-ocean placeholder-ocean/70 focus:outline-none focus:border-wave focus:ring-2 focus:ring-wave/50"
+              className="w-full p-3 bg-black border border-green-500 text-green-400 placeholder-green-700 focus:outline-none focus:border-green-300 focus:ring-2 focus:ring-green-700 font-mono"
+              style={{ fontFamily: 'inherit' }}
             />
           </div>
           <div>
-            <label className="block text-wave font-semibold mb-3">Boat model</label>
+            <label className="block font-semibold mb-3" style={{ color: 'var(--color-terminal-green)' }}>Boat model</label>
             <input
               type="text"
               name="boatModel"
               value={inputs.boatModel}
               onChange={handleChange}
               required
-              className="w-full p-4 rounded-xl bg-white/10 border border-wave/50 text-ocean placeholder-ocean/70 focus:outline-none focus:border-wave focus:ring-2 focus:ring-wave/50"
+              className="w-full p-3 bg-black border border-green-500 text-green-400 placeholder-green-700 focus:outline-none focus:border-green-300 focus:ring-2 focus:ring-green-700 font-mono"
+              style={{ fontFamily: 'inherit' }}
             />
           </div>
           <div>
-            <label className="block text-wave font-semibold mb-3">Available sails (comma-separated or description)</label>
+            <label className="block font-semibold mb-3" style={{ color: 'var(--color-terminal-green)' }}>Available sails (comma-separated or description)</label>
             <textarea
               name="availableSails"
               value={inputs.availableSails}
               onChange={handleChange}
               required
-              className="w-full p-4 rounded-xl bg-white/10 border border-wave/50 text-ocean placeholder-ocean/70 focus:outline-none focus:border-wave focus:ring-2 focus:ring-wave/50 h-32 resize-none"
+              className="w-full p-3 bg-black border border-green-500 text-green-400 placeholder-green-700 focus:outline-none focus:border-green-300 focus:ring-2 focus:ring-green-700 font-mono h-32 resize-none"
+              style={{ fontFamily: 'inherit' }}
             />
           </div>
           <button
             type="submit"
             disabled={loading}
-            className={`w-full p-5 rounded-xl text-white font-bold text-lg transition-colors flex items-center justify-center ${
-              loading ? 'bg-wave/70 cursor-not-allowed' : 'bg-wave hover:bg-wave/90'
-            }`}
+            className={`w-full p-4 font-bold text-lg flex items-center justify-center border border-green-500 bg-black text-green-400 font-mono transition-colors ${loading ? 'opacity-60 cursor-not-allowed' : 'hover:bg-green-900/30'}`}
+            style={{ fontFamily: 'inherit', boxShadow: '0 0 8px #00ff41' }}
           >
             {loading ? (
               <>
-                <div className="w-7 h-7 border-4 border-white/30 border-t-wave rounded-full animate-spin mr-3" />
-                Navigating...
+                <div className="w-6 h-6 border-2 border-green-700 border-t-green-300 rounded-full animate-spin mr-3" />
+                Loading...
               </>
             ) : (
               'Get Advice'
@@ -232,9 +235,9 @@ Provide advice on the sail plan for this trip, including sail choices, safety co
         )}
         {error && <p className="text-red-500 text-center mt-6 font-medium">{error}</p>}
         {advice && (
-          <div className="mt-10  pl-24 pr-24 pt-10 pb-10 bg-white/20 backdrop-blur-lg border border-white/30 rounded-3xl">
-            <h2 className="text-ocean text-3xl font-bold mb-6">Advice from Captain AI:</h2>
-            <div className="prose prose-lg text-ocean/90 max-w-none">
+          <div className="mt-10 p-10 bg-black border border-green-500" style={{ color: 'var(--color-terminal-green)', fontFamily: 'inherit' }}>
+            <h2 className="text-3xl font-bold mb-6" style={{ color: 'var(--color-terminal-green)', fontFamily: 'inherit' }}>Advice from Captain AI:</h2>
+            <div className="prose prose-lg max-w-none" style={{ color: 'var(--color-terminal-green)', fontFamily: 'inherit' }}>
               <ReactMarkdown>{advice}</ReactMarkdown>
             </div>
           </div>

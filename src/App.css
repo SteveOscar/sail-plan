@@ -40,3 +40,40 @@
 .read-the-docs {
   color: #888;
 }
+
+button, .terminal-btn {
+  background: #101010;
+  color: #00ff41;
+  border: 2px solid #00ff41;
+  font-family: 'Fira Mono', 'Consolas', 'Menlo', 'Monaco', 'monospace';
+  box-shadow: 0 0 8px #00ff41;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  border-radius: 0;
+}
+button:hover, .terminal-btn:hover {
+  background: #003b1a;
+  color: #39ff14;
+  box-shadow: 0 0 16px #39ff14;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #00ff41;
+  font-family: 'Fira Mono', 'Consolas', 'Menlo', 'Monaco', 'monospace';
+  text-shadow: 0 0 4px #00ff41;
+}
+
+input, textarea {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.text-red-500 {
+  color: #ff3b3b !important;
+  background: #101010 !important;
+  font-family: 'Fira Mono', 'Consolas', 'Menlo', 'Monaco', 'monospace';
+  border: 1px solid #ff3b3b;
+  padding: 0.5em 1em;
+  display: inline-block;
+}
